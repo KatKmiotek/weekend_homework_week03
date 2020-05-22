@@ -3,10 +3,11 @@ require_relative('film')
 require_relative('ticket')
 require_relative('../db/sql_runner')
 
-attr_reader :id, :name
-attr_accessor :funds
+
 
 class Customer
+  attr_accessor :funds, :name, :id
+
 
 def initialize(options)
   @id = options['id'].to_i if options['id']
