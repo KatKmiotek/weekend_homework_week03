@@ -74,8 +74,8 @@ ticket4.save()
 ticket5.save()
 ticket6.save()
 
-
-
+customer1.films()
+film1.customers()
 
 
 
