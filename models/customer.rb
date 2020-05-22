@@ -1,6 +1,7 @@
 require('pry')
 require_relative('film')
 require_relative('ticket')
+require_relative('screening')
 require_relative('../db/sql_runner')
 
 
@@ -47,6 +48,19 @@ def tickets_bought()
   result = SqlRunner.run(sql,values)
   return result.count
 end
+
+# def buying_ticket()
+#   sql = "SELECT name, funds, price FROM customers JOIN films ON customers.id = films.id WHERE customers.id = $1"
+#   values = [@id]
+#   result = SqlRunner.run(sql, values)
+#
+# end
+
+# def buying_ticket()
+#   sql = "UPDATE customers JOIN films ON customer.id = films.id SET funds = funds - films.price"
+#   values = []
+#   SqlRunner.run(sql, values)
+# end
 
 def self.delete_all()
   sql = "DELETE FROM customers"

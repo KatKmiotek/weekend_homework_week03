@@ -2,6 +2,7 @@ require('pry')
 require_relative('models/customer')
 require_relative('models/ticket')
 require_relative('models/film')
+require_relative('models/screening')
 require_relative('db/sql_runner')
 
 Ticket.delete_all()
@@ -79,13 +80,27 @@ film1.customers()
 
 #basic extensions
 film3.how_many_customers()
-customer1.buying_ticket()
+#customer1.buying_ticket()
 customer1.tickets_bought()
 
+#advanced extensions
+screening1 = Screening.new({
+  'film_id' => film1.id,
+  'time' => '18:00'
+  })
+screening2 = Screening.new({
+  'film_id' => film2.id,
+  'time' => '20:00'
+  })
+screening3 = Screening.new({
+  'film_id' => film3.id,
+  'time' => '22:00'
+  })
+screening1.save()
+screening2.save()
+screening3.save()
 
-
-
-
+film1.most_popular() #SELECT WHERE movies.id =$1
 
 binding.pry
 nil

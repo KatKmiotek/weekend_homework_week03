@@ -2,39 +2,38 @@ require('pry')
 require_relative('film')
 require_relative('customer')
 require_relative('screening')
-require_relative('../db/sql_runner')
 
-class Ticket
-  attr_reader :id, :customer_id, :film_id
-
+class Screening
+attr_reader :id, :film_id, :time
 
 def initialize(options)
   @id = options['id'].to_i if options['id']
-  @customer_id = options['customer_id']
   @film_id = options['film_id'].to_i
+  @time = options['time'].to_i
 end
 
+
 def save()
-  sql = "INSERT INTO tickets (customer_id, film_id) VALUES ($1, $2) RETURNING id"
-  values = [@customer_id, @film_id]
+  sql = "INSERT INTO screenings (flim_id, time) VALUES ($1, $2) RETURNING id"
+  values = [@film_id, @time]
   result = SqlRunner.run(sql, values)
   @id = result[0]['id'].to_i
 end
 
 def update()
-  sql = "UPDATE tickets SET (customer_id, film_id) = ($1, $2) WHERE id = $3"
-  values = [@customer_id, @film_id, @id]
+  sql = "UPDATE screenings SET (film_id, time) = ($1, $2) WHERE id = $3"
+  values = [@film_id, @time, @id]
   SqlRunner.run(sql, values)
 end
 
 def delete()
-  sql = "DELETE FROM tickets WHERE id = $1"
+  sql = "DELETE FROM screenings WHERE id = $1"
   values = [@id]
   SqlRunner.run(sql, values)
 end
 
 def self.delete_all()
-  sql = "DELETE FROM tickets"
+  sql = "DELETE FROM screenings"
   SqlRunner.run(sql)
 end
 

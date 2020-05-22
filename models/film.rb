@@ -1,6 +1,7 @@
 require('pry')
 require_relative('customer')
 require_relative('ticket')
+require_relative('screening')
 require_relative('../db/sql_runner')
 
 class Film
