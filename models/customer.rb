@@ -41,6 +41,13 @@ def films()
   return result.map { |film| Film.new(film) }
 end
 
+def tickets_bought()
+  sql = "SELECT * FROM tickets WHERE customer_id = $1"
+  values = [@id]
+  result = SqlRunner.run(sql,values)
+  return result.count
+end
+
 def self.delete_all()
   sql = "DELETE FROM customers"
   SqlRunner.run(sql)

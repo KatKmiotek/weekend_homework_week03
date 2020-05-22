@@ -77,7 +77,10 @@ ticket6.save()
 customer1.films()
 film1.customers()
 
-
+#basic extensions
+film3.how_many_customers()
+customer1.buying_ticket()
+customer1.tickets_bought()
 
 
 
