@@ -52,4 +52,10 @@ def self.delete_all()
   SqlRunner.run(sql)
 end
 
+def self.all_titles()
+  sql = "SELECT title FROM films ORDER BY title"
+  result = SqlRunner.run(sql)
+  return result.map { |film| Film.new(film).title}
+end
+
 end

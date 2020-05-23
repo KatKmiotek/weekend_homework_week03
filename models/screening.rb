@@ -14,7 +14,7 @@ end
 
 
 def save()
-  sql = "INSERT INTO screenings (flim_id, time) VALUES ($1, $2) RETURNING id"
+  sql = "INSERT INTO screenings (film_id, time) VALUES ($1, $2) RETURNING id"
   values = [@film_id, @time]
   result = SqlRunner.run(sql, values)
   @id = result[0]['id'].to_i

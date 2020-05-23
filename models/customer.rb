@@ -49,18 +49,14 @@ def tickets_bought()
   return result.count
 end
 
-# def buying_ticket()
-#   sql = "SELECT name, funds, price FROM customers JOIN films ON customers.id = films.id WHERE customers.id = $1"
-#   values = [@id]
-#   result = SqlRunner.run(sql, values)
-#
-# end
+def buying_ticket()
+  sql = "SELECT SUM(price) FROM films JOIN tickets ON tickets.film_id = films.id WHERE customer_id = $1"
+  values = [@id]
+  result = SqlRunner.run(sql, values)
+  @funds -= result.values()[0][0].to_i
+end
 
-# def buying_ticket()
-#   sql = "UPDATE customers JOIN films ON customer.id = films.id SET funds = funds - films.price"
-#   values = []
-#   SqlRunner.run(sql, values)
-# end
+
 
 def self.delete_all()
   sql = "DELETE FROM customers"

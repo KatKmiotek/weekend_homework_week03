@@ -75,12 +75,14 @@ ticket4.save()
 ticket5.save()
 ticket6.save()
 
+Film.all_titles()
+
 customer1.films()
 film1.customers()
 
 #basic extensions
 film3.how_many_customers()
-#customer1.buying_ticket()
+customer1.buying_ticket()
 customer1.tickets_bought()
 
 #advanced extensions
@@ -100,7 +102,7 @@ screening1.save()
 screening2.save()
 screening3.save()
 
-film1.most_popular() #SELECT WHERE movies.id =$1
+#film1.most_popular() #SELECT WHERE movies.id =$1
 
 binding.pry
 nil
