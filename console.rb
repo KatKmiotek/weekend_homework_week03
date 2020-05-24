@@ -89,17 +89,17 @@ customer1.tickets_bought()
 screening1 = Screening.new({
   'film_id' => film1.id,
   'time' => '18:00',
-  'available_seats' => '100'
+  'available_seats' => '98'
   })
 screening2 = Screening.new({
   'film_id' => film2.id,
   'time' => '20:00',
-  'available_seats'=> '100'
+  'available_seats'=> '90'
   })
 screening3 = Screening.new({
   'film_id' => film3.id,
   'time' => '22:00',
-  'available_seats'=> '100'
+  'available_seats'=> '99'
   })
 screening1.save()
 screening2.save()

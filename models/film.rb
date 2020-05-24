@@ -47,6 +47,12 @@ def how_many_customers()
    return result.count
 end
 
+def self.most_popular()
+  sql = "SELECT available_seats FROM screenings JOIN films ON films.id = screenings.film_id ORDER BY available_seats"
+  result = SqlRunner.run(sql)
+  return result.map { |screening| Screening.new(screening) }.first
+end
+
 def self.delete_all()
   sql = "DELETE FROM films"
   SqlRunner.run(sql)
