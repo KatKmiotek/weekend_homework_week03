@@ -88,21 +88,24 @@ customer1.tickets_bought()
 #advanced extensions
 screening1 = Screening.new({
   'film_id' => film1.id,
-  'time' => '18:00'
+  'time' => '18:00',
+  'available_seats' => '100'
   })
 screening2 = Screening.new({
   'film_id' => film2.id,
-  'time' => '20:00'
+  'time' => '20:00',
+  'available_seats'=> '100'
   })
 screening3 = Screening.new({
   'film_id' => film3.id,
-  'time' => '22:00'
+  'time' => '22:00',
+  'available_seats'=> '100'
   })
 screening1.save()
 screening2.save()
 screening3.save()
 
-#film1.most_popular() #SELECT WHERE movies.id =$1
+#film1.most_popular()
 
 binding.pry
 nil
